@@ -59,7 +59,7 @@ Each dataset includes:
 
 ---
 
-## 🧠 Models
+## 🧠 Sample Models
 
 ### 1. **VGG**
 Simple yet deep CNN architecture using stacked small filters.
@@ -90,6 +90,7 @@ Local features extracted by CNN layers, followed by Swin Transformer blocks to c
 Evaluation scripts include per-class metrics, confusion matrices, and performance plots.
 
 ---
+
 📚 Citation
 If you use this work, please cite:
 ```bibtex
