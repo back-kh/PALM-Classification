@@ -1,60 +1,103 @@
-# Isolated Palm Leaf Classification Benchmark
+ # 🧠 Isolated Palm Leaf Classification Benchmark 
 
-## Overview
+Welcome to the **Isolated Palm Leaf Classification Benchmark**, a comprehensive framework for evaluating deep learning models on isolated character classification from **palm leaf manuscripts**. This benchmark is focused on **low-resource Southeast Asian scripts** such as **Khmer**, **Balinese**, and **Sundanese**, known for their intricate glyph shapes, stacked diacritics, and limited digital resources.
 
-Welcome to the Isolated Palm Leaf Classification Benchmark! This project aims to improve the classification of isolated palm leaf images using various Convolutional Neural Network (CNN) architectures. Leveraging the strengths of models like VGG, ResNet, Efficient ViT, Swin, CvT and HybridCNN-Swin. we present a framework for enhancing classification accuracy and efficiency.
+---
+## 🖼️ Visual Example
 
-## Project Goals
+<p align="center">
+  <img src="fig/1.jpg" alt="Isolated Glyphs from Khmer, Balinese, Sundanese Scripts" width="600"/>
+</p>
+<p align="center"><em>Figure 1: Sample isolated glyphs from Khmer, Balinese, and Sundanese  palm leaf manuscripts.</em></p>
 
-- **Develop a Benchmark:** Establish a standard benchmark for isolated palm leaf classification.
-- **Compare Architectures:** Evaluate and compare the performance of different neural network architectures.
-- **Improve Classification:** Utilize advanced techniques to enhance classification accuracy.
+---
+## 🔍 Overview
 
-## Datasets
+Palm leaf manuscripts represent a crucial component of Southeast Asia’s historical archives, preserving ancient texts in traditional scripts. However, these documents are often deteriorated, inconsistently written, and challenging to digitize. This project introduces:
 
-We employ a curated dataset of isolated palm leaf images, consisting of multiple species. The dataset is split into training, validation, and test sets.
+- A **standardized dataset** of isolated glyph images
+- **Preprocessing techniques** to enhance input quality
+- **Expanded data** through controlled augmentation
+- A deep-learning benchmark of **CNN** and **Transformer** architectures
 
-## Models
+---
 
-1. **VGG**
-   - **Description:** VGG is known for its simplicity and depth, utilizing small convolutional filters to capture intricate details. Its architecture allows for a straightforward approach to feature extraction.
-   - **Use Case:** Best for scenarios where interpretability and feature visualization are essential.
+## 🎯 Project Goals
 
-2. **ResNet (Residual Networks)**
-   - **Description:** ResNet introduces skip connections, enabling the training of very deep networks without the vanishing gradient problem. This architecture allows for more effective feature learning.
-   - **Use Case:** Ideal for leveraging deeper architectures to significantly improve classification accuracy.
+- ✅ **Establish a Benchmark**  
+  Provide an evaluation suite for isolated glyph classification in low-resource scripts.
 
-3. **ViT (Vision Transformer)**
-   - **Description:** ViT combines the local feature extraction of convolutional layers with the global context capabilities of transformers, optimizing both computational efficiency and performance.
-   - **Use Case:** Particularly effective for datasets with high variability and complexity.
+- ⚖️ **Compare Architectures**  
+  Benchmark classic CNNs and modern transformer-based models on script-specific tasks.
 
-4. **Swin Transformer**
-   - **Description:** Swin Transformer employs a hierarchical architecture that processes images at various scales, effectively capturing local and global features.
-   - **Use Case:** Suitable for tasks requiring high-resolution inputs, making it versatile across different image sizes.
+- 📈 **Improve Accuracy**  
+  Explore and fine-tune hybrid models for challenging glyph-level classification scenarios.
 
-5. **CvT (Convolutional Vision Transformer)**
-   - **Description:** CvT merges convolutional layers with transformer architectures, improving local feature extraction while maintaining global understanding, resulting in better performance in complex classification tasks.
-   - **Use Case:** Excels in scenarios that require a balance between local detail and global context.
-6. **Hybrid CNN + Swin Transformer Model**
-   - **Convolutional layers:** will be used initially to capture local features.
-   - **Swin Transformer layers:** will then process the features from the convolutional layers to capture long-range dependencies and global context.
-   - The output will go through a fully connected layer for classification.
+- 🧼 **Enhance Data Quality**  
+  Apply cleaning pipelines and augment the dataset to improve training diversity and generalizability.
 
-## Evaluation Metrics
+---
 
-- **Accuracy:** Proportion of correctly classified images.
-- **F1 Score:** Harmonic mean of precision and recall.
 
-## Installation
 
-To set up the environment, clone this repository and install the required dependencies:
+## 📂 Dataset & Preprocessing
 
-## Citations
+We curated and expanded a high-quality dataset of **isolated glyph images**, categorized across three scripts:
+
+- **Khmer**
+- **Balinese**
+- **Sundanese**
+
+To improve robustness and generalizability:
+- 🧽 **Preprocessing**: We applied noise removal, cropping, normalization, and contrast enhancement.
+- 📈 **Augmentation**: We synthetically expanded the dataset using affine transformations, glyph distortion simulations, and grammatical constraints.
+
+Each dataset includes:
+- Labeled classes and subcategories
+- Training, validation, and test splits
+- Binary and grayscale image formats
+
+---
+
+## 🧠 Models
+
+### 1. **VGG**
+Simple yet deep CNN architecture using stacked small filters.
+
+### 2. **ResNet**
+Introduces residual connections to enable training of very deep networks.
+
+### 3. **Vision Transformer (ViT)**
+Applies patch-based self-attention for capturing long-range dependencies.
+
+### 4. **Swin Transformer**
+Hierarchical transformer architecture that models both local and global features.
+
+### 5. **Convolutional Vision Transformer (CvT)**
+Combines convolution and attention for efficient hybrid modeling.
+
+### 6. **Hybrid CNN + Swin Transformer**
+Local features extracted by CNN layers, followed by Swin Transformer blocks to capture global context. Final classification is done using fully connected layers.
+
+
+## 📊 Evaluation Metrics
+
+| Metric      | Description                                           |
+|-------------|-------------------------------------------------------|
+| Accuracy    | Proportion of correctly predicted glyph classes       |
+| F1 Score    | Harmonic mean of precision and recall                 |
+
+Evaluation scripts include per-class metrics, confusion matrices, and performance plots.
+
+---
+📚 Citation
+If you use this work, please cite:
+```bibtex
 @inproceedings{thuon2022improving,
-  title={Improving isolated glyph classification task for palm leaf manuscripts},
-  author={Thuon, Nimol and Du, Jun and Zhang, Jianshu},
-  booktitle={International Conference on Frontiers in Handwriting Recognition},
-  pages={65--79},
-  year={2022},
-  organization={Springer}
+  title     = {Improving Isolated Glyph Classification Task for Palm Leaf Manuscripts},
+  author    = {Thuon, Nimol and Du, Jun and Zhang, Jianshu},
+  booktitle = {International Conference on Frontiers in Handwriting Recognition (ICFHR)},
+  pages     = {65--79},
+  year      = {2022},
+  organization = {Springer}
 }
